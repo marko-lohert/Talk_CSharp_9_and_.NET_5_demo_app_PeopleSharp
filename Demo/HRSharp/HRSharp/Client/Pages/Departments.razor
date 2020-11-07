@@ -1,0 +1,29 @@
+﻿@page "/Departments"
+
+@inject HttpClient Http
+
+<h2>Departments</h2>
+
+@if (ListDepartments != null)
+{
+    <div class="HRSharp-table-wrapper-scroll-y HRSharp-custom-scrollbar">
+
+        <table class="table table-striped">
+            <thead class="thead thead-light">
+                <tr>
+                    <th>Department Name</th>
+                    <th>Head of Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Department department in ListDepartments)
+                {
+                    <tr>
+                        <td>@department.DepartmentName</td>
+                        <td>@department.HeadOfDepartment?.FirstName @department.HeadOfDepartment?.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

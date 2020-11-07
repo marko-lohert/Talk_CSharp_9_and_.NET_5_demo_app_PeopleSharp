@@ -1,0 +1,35 @@
+﻿@page "/EmployeeDirectory"
+@inject HttpClient Http
+
+<h2>Employee Directory</h2>
+
+@if (ListAllEmployees != null)
+{
+    <div class="HRSharp-table-wrapper-scroll-y HRSharp-custom-scrollbar">
+        <table class="table table-striped table-hover">
+            <thead class="thead thead-light">
+                <tr>
+                    <th class="th-sm">First Name</th>
+                    <th class="th-sm">Last Name</th>
+                    <th class="th-sm">Job Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Employee employee in ListAllEmployees)
+                {
+                    <tr @onclick="@(() => SelectedEmployee = employee)">
+                        <td>@employee.FirstName</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.JobTitle</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<br /><br />
+
+<CascadingValue Value="@SelectedEmployee">
+    <EmployeeInfo />
+</CascadingValue>

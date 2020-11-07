@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30615.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSharp.Server", "HRSharp\Server\HRSharp.Server.csproj", "{DE4DAEBB-43D1-4071-BD04-5BC25F094A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRSharp.Server", "HRSharp\Server\HRSharp.Server.csproj", "{DE4DAEBB-43D1-4071-BD04-5BC25F094A7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSharp.Client", "HRSharp\Client\HRSharp.Client.csproj", "{F8FAF4D1-FBDB-4AB8-AED2-3B0AF1890874}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRSharp.Client", "HRSharp\Client\HRSharp.Client.csproj", "{F8FAF4D1-FBDB-4AB8-AED2-3B0AF1890874}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSharp.Shared", "HRSharp\Shared\HRSharp.Shared.csproj", "{5A36C33E-34E4-43BA-9D89-2E9A1549A439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRSharp.Shared", "HRSharp\Shared\HRSharp.Shared.csproj", "{5A36C33E-34E4-43BA-9D89-2E9A1549A439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

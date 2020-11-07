@@ -48,3 +48,13 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+.HRSharp-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
+
+.HRSharp-table-wrapper-scroll-y {
+    display: block;
+}
