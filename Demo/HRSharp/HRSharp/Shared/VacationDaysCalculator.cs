@@ -13,9 +13,7 @@ namespace HRSharp.Shared
         {
             int vacationDays = 20;
 
-            int yearWithCompany = 0;
-            if (employee.DateOfEmployment < DateTime.Now)
-                yearWithCompany = (int)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
+            int yearWithCompany = CalculateYearWithCompany(employee);
                         
             if (yearWithCompany > 1 && yearWithCompany <= 4)
                 vacationDays++;
@@ -27,6 +25,14 @@ namespace HRSharp.Shared
                 vacationDays += 7;
 
             return vacationDays;
+
+            static int CalculateYearWithCompany(Employee employee)
+            {
+                if (employee.DateOfEmployment < DateTime.Now)
+                    return (int)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
+                else
+                    return 0;
+            }
         }        
     }
 }
