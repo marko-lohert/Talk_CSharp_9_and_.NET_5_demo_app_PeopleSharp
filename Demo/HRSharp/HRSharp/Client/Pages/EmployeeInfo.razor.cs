@@ -16,7 +16,7 @@ namespace HRSharp.Client.Pages
             if (SelectedEmployee == null)
                 return;
 
-            VacationDaysCalculator calculator = new VacationDaysCalculator();
+            VacationDaysCalculator calculator = new();
             int newVacationDays = calculator.Calculate(SelectedEmployee);
 
             if (newVacationDays != SelectedEmployee.VacationDays)
