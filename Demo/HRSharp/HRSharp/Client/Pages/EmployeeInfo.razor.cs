@@ -17,12 +17,12 @@ namespace HRSharp.Client.Pages
                 return;
 
             VacationDaysCalculator calculator = new();
-            int newVacationDays = calculator.Calculate(SelectedEmployee);
+            nint newVacationDays = calculator.Calculate(SelectedEmployee);
 
             if (newVacationDays != SelectedEmployee.VacationDays)
             {
                 IsSelectedEmployeeChanged = true;
-                SelectedEmployee.VacationDays = newVacationDays;
+                SelectedEmployee.VacationDays = (int)newVacationDays;
             }
         }
 

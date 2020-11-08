@@ -9,11 +9,11 @@ namespace HRSharp.Shared
         /// </summary>
         /// <param name="employee">Employee whose vacation days will be calculated.</param>
         /// <returns>A number of vacation days.</returns>
-        public int Calculate(Employee employee)
+        public nint Calculate(Employee employee)
         {
-            int vacationDays = 20;
+            nint vacationDays = 20;
 
-            int yearWithCompany = CalculateYearWithCompany(employee);
+            nint yearWithCompany = CalculateYearWithCompany(employee);
 
             vacationDays += yearWithCompany switch
             {
@@ -26,10 +26,10 @@ namespace HRSharp.Shared
 
             return vacationDays;
 
-            static int CalculateYearWithCompany(Employee employee)
+            static nint CalculateYearWithCompany(Employee employee)
             {
                 if (employee.DateOfEmployment < DateTime.Now)
-                    return (int)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
+                    return (nint)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
                 else
                     return 0;
             }
