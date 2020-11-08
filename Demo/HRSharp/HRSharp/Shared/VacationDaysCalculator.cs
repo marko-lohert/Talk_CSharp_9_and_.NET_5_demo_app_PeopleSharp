@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace HRSharp.Shared
 {
@@ -26,6 +27,7 @@ namespace HRSharp.Shared
 
             return vacationDays;
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             static nint CalculateYearWithCompany(Employee employee)
             {
                 if (employee.DateOfEmployment < DateTime.Now)
