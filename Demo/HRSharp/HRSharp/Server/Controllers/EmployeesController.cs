@@ -32,10 +32,7 @@ namespace HRSharp.Server.Controllers
                 FirstName = "John",
                 LastName = "Doe",
                 JobTitle = "Head of IoT",
-                Department = new Department()
-                {
-                    DepartmentName = "IoT"
-                },
+                Department = new Department("IoT", null, new List<Employee>(), null),
                 DateOfEmployment = new DateTime(2001, 04, 01),
                 DirectManager = ceo,
                 VacationDays = 23
@@ -45,10 +42,7 @@ namespace HRSharp.Server.Controllers
                 FirstName = "Jane",
                 LastName = "Doe",
                 JobTitle = "Head of QA",
-                Department = new Department()
-                {
-                    DepartmentName = "QA"
-                },
+                Department = new Department("QA", null, new List<Employee>(), null),
                 DateOfEmployment = new DateTime(2002, 05, 01),
                 DirectManager = ceo,
                 VacationDays = 23
@@ -58,10 +52,7 @@ namespace HRSharp.Server.Controllers
                 FirstName = "Jake",
                 LastName = "Smith",
                 JobTitle = "Head of RnD",
-                Department = new Department()
-                {
-                    DepartmentName = "RnD"
-                },
+                Department = new Department("RnD", null, new List<Employee>(), null),
                 DateOfEmployment = new DateTime(2003, 06, 01),
                 DirectManager = ceo,
                 VacationDays = 23
@@ -74,10 +65,7 @@ namespace HRSharp.Server.Controllers
                     FirstName = "John",
                     LastName = "Smith",
                     JobTitle = "Developer",
-                    Department = new Department()
-                    {
-                        DepartmentName = "IoT"
-                    },
+                    Department = new Department("IoT", null, new List<Employee>(), managerJohnDoe),
                     DateOfEmployment = new DateTime(2010,01,01),
                     DirectManager = managerJohnDoe,
                     VacationDays = 25
@@ -87,10 +75,7 @@ namespace HRSharp.Server.Controllers
                     FirstName = "Jane",
                     LastName = "Smith",
                     JobTitle = "Developer",
-                    Department = new Department()
-                    {
-                        DepartmentName = "RnD"
-                    },
+                    Department = new Department("RnD", null, new List<Employee>(), managerJakeSmith),
                     DateOfEmployment = new DateTime(2000,02,01),
                     DirectManager = managerJaneDoe,
                     VacationDays = 27
@@ -100,10 +85,7 @@ namespace HRSharp.Server.Controllers
                     FirstName = "Jack",
                     LastName = "Hunter",
                     JobTitle = "Tester",
-                    Department = new Department()
-                    {
-                        DepartmentName = "QA"
-                    },
+                    Department = new Department("QA", null, new List<Employee>(), managerJaneDoe),
                     DateOfEmployment = new DateTime(2010,03,01),
                     DirectManager = managerJaneDoe,
                     VacationDays = 23

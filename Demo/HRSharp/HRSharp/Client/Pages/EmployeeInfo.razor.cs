@@ -22,7 +22,7 @@ namespace HRSharp.Client.Pages
             if (newVacationDays != SelectedEmployee.VacationDays)
             {
                 IsSelectedEmployeeChanged = true;
-                SelectedEmployee.VacationDays = (int)newVacationDays;
+                SelectedEmployee = SelectedEmployee with { VacationDays = (int)newVacationDays };
             }
         }
 

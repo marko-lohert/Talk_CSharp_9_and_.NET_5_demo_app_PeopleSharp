@@ -34,33 +34,9 @@ namespace HRSharp.Server.Controllers
 
             return new List<Department>
             {
-                new Department()
-                {
-                    DepartmentName = "IoT",
-                    HeadOfDepartment = managerJohnDoe,
-                    EmployeesDirectlyInDepartment = new List<Employee>()
-                    {
-                    },
-                    Subdepartments = null
-                },
-                new Department()
-                {
-                    DepartmentName = "QA",
-                    HeadOfDepartment = managerJaneDoe,
-                    EmployeesDirectlyInDepartment = new List<Employee>()
-                    {
-                    },
-                    Subdepartments = null
-                },
-                new Department()
-                {
-                    DepartmentName = "RnD",
-                    HeadOfDepartment = managerJakeSmith,
-                    EmployeesDirectlyInDepartment = new List<Employee>()
-                    {
-                    },
-                    Subdepartments = null
-                }
+                new Department("IoT", null, new List<Employee>(), managerJohnDoe),
+                new Department("QA", null, new List<Employee>(), managerJaneDoe),                
+                new Department("RnD", null, new List<Employee>(), managerJakeSmith)                
             };
         }
     }

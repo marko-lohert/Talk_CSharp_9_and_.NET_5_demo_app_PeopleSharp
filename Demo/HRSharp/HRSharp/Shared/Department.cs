@@ -2,17 +2,5 @@
 
 namespace HRSharp.Shared
 {
-    public class Department
-    {
-        public string DepartmentName { get; set; }
-        public List<Department>? Subdepartments { get; set; }
-        /// <summary>
-        /// Employees that work directly in this department, and not in some of subdepartments.
-        /// </summary>
-        public List<Employee>? EmployeesDirectlyInDepartment { get; set; }
-        /// <summary>
-        /// Manager that leads this department.
-        /// </summary>
-        public Manager HeadOfDepartment { get; set; }
-    }
+    public record Department (string DepartmentName, List<Department>? Subdepartments, List<Employee>? EmployeesDirectlyInDepartment, Manager HeadOfDepartment);
 }
