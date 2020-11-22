@@ -8,7 +8,7 @@ namespace ReportVacationDays
     {
         static void Main(string[] args)
         {
-            using SqlConnection connection = new SqlConnection(Properties.Resources.ConnectionString);
+            using SqlConnection connection = new SqlConnection(ReportVacationDays.Properties.Resources.ConnectionString);
             using SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = new SqlCommand("SELECT LastName, FirstName, VacationDays FROM Employee ORDER BY LastName, FirstName", connection);
             using DataTable dataTable = new DataTable();
