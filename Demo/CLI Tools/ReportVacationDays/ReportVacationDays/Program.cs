@@ -13,7 +13,7 @@ namespace ReportVacationDays
             adapter.SelectCommand = new SqlCommand("SELECT LastName, FirstName, VacationDays FROM Employee ORDER BY LastName, FirstName", connection);
             using DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-            string reportFileName = $"C:\\HR #\\Report Vacation Days {DateTime.Now:yyyy-MM-dd}.xlsx";
+            string reportFileName = $"C:\\HR #\\Report Vacation Days {DateTime.Now:yyyy-MM-dd hh.mm}.xlsx";
             DataTableToExcel.DataTableToExcel.ExportToExcel(reportFileName, WworkBookName: "HR #", dataTable);
         }
     }
