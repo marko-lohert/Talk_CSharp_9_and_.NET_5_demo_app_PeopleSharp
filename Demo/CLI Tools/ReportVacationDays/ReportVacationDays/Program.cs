@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace ReportVacationDays
 {
@@ -8,13 +8,23 @@ namespace ReportVacationDays
     {
         static void Main(string[] args)
         {
-            using SqlConnection connection = new SqlConnection(ReportVacationDays.Properties.Resources.ConnectionString);
-            using SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = new SqlCommand("SELECT LastName, FirstName, VacationDays FROM Employee ORDER BY LastName, FirstName", connection);
-            using DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            string reportFileName = $"C:\\HR #\\Report Vacation Days {DateTime.Now:yyyy-MM-dd hh.mm}.xlsx";
+            using DataTable dataTable = GetData();
+            
+            string reportFileName = $"C:\\HR #\\Report Vacation Days {DateTime.Now:yyyy-MM-dd HH.mm}.xlsx";
             DataTableToExcel.DataTableToExcel.ExportToExcel(reportFileName, WworkBookName: "HR #", dataTable);
+
+            DataTable GetData()
+            {
+                const string selectCmd = @"SELECT LastName, FirstName, VacationDays
+                                           FROM Employee
+                                           ORDER BY LastName, FirstName";
+                using SqlConnection connection = new SqlConnection(ReportVacationDays.Properties.Resources.ConnectionString);
+                using SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = new SqlCommand(selectCmd, connection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
         }
     }
 }
