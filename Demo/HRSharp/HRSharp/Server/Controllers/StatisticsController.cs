@@ -20,7 +20,7 @@ namespace HRSharp.Server.Controllers
         {
             StatsCompanyCalculator calc = new StatsCompanyCalculator();
 
-            return calc.CalculateStatsCompany();
+            return calc.CalculateStats();
         }
     }
 }

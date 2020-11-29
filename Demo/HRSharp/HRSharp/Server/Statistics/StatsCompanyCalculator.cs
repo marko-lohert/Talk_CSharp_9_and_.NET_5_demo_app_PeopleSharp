@@ -8,7 +8,7 @@ namespace HRSharp.Server.Statistics
 {
     public class StatsCompanyCalculator : StatsEmployeesCalculator
     {
-        public StatsCompany CalculateStatsCompany()
+        public override StatsCompany CalculateStats()
         {
             DepartmentsController departmentsController = new DepartmentsController();
             List<Department>? allDepartments = departmentsController.GetAllDepartments()?.ToList();
