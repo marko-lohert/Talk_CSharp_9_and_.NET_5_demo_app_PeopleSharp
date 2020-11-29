@@ -1,0 +1,35 @@
+﻿@page "/CompanyStatistics"
+
+@inject HttpClient Http
+
+<h2>Company Statistics</h2>
+
+@if (Stats != null)
+{
+    <div style="width:500px">
+        <table class="table table-light">
+            <tbody>
+                <tr>
+                    <td>A number of employees</td>
+                    <td>@Stats.CountEmployees</td>
+                </tr>
+                <tr>
+                    <td>An average number of vacation days</td>
+                    <td>@Stats.AvgVacationDays.ToString("0.##")</td>
+                </tr>
+                <tr>
+                    <td>A number of different job titles</td>
+                    <td>@Stats.DiffJobTitles</td>
+                </tr>
+                <tr>
+                    <td>A number of departments</td>
+                    <td>@Stats.CountDepartments</td>
+                </tr>
+                <tr>
+                    <td>A number of managers</td>
+                    <td>@Stats.CountManagers</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
