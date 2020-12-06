@@ -10,19 +10,13 @@ namespace PeopleSharp.Server.DataAccess
         {
             DataTable dtAllDepartments = GetAllDepartmentsFromDB();
 
-            List<Department> listAllDepartments = new List<Department>();
+            List<Department> listAllDepartments = new();
 
             foreach (DataRow row in dtAllDepartments.Rows)
             {
                 var (departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment) = Parse(row);
 
-                Department department = new Department
-                {
-                    DepartmentName = departmentName,
-                    HeadOfDepartment = headOfDepartment,
-                    Subdepartments = subdepartments,
-                    EmployeesDirectlyInDepartment = employeesDirectlyInDepartment
-                };
+                Department department = new Department(departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment);
 
                 listAllDepartments.Add(department);
             }

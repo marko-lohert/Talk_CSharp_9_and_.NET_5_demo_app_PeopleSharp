@@ -14,7 +14,7 @@ namespace PeopleSharp.Server.Controllers
         [HttpGet("[action]")]
         public IEnumerable<Employee> GetAllEmployees()
         {
-            DaoEmployees daoEmployees = new DaoEmployees();
+            DaoEmployees daoEmployees = new();
             return daoEmployees.GetAllEmployees();
         }
 
@@ -22,7 +22,7 @@ namespace PeopleSharp.Server.Controllers
         [HttpPut("[action]")]
         public void UpdateEmployee()
         {
-            DaoEmployees daoEmployees = new DaoEmployees();
+            DaoEmployees daoEmployees = new();
             daoEmployees.UpdateEmployee();
         }
     }

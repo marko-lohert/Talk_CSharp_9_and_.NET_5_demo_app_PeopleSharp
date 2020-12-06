@@ -2,14 +2,14 @@
 
 namespace PeopleSharp.Shared
 {
-    public class Employee
+    public record Employee
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string JobTitle { get; set; }
-        public DateTime DateOfEmployment { get; set; }
-        public Department? Department { get; set; }
-        public Manager? DirectManager {get;set;}
-        public int VacationDays { get; set; }
+        public string FirstName { get; init; }
+        public string LastName { get; init; }
+        public string JobTitle { get; init; }
+        public DateTime DateOfEmployment { get; init; }
+        public Department? Department { get; init; }
+        public Manager? DirectManager {get; init; }
+        public int VacationDays { get; init; }
     }
 }

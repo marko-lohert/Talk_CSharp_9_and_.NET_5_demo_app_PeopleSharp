@@ -10,7 +10,7 @@ namespace PeopleSharp.Server.Controllers
         [HttpGet("[action]")]
         public StatsEmployees GetStatsEmployees()
         {
-            StatsEmployeesCalculator calc = new StatsEmployeesCalculator();
+            StatsEmployeesCalculator calc = new();
             
             return calc.CalculateStats();
         }
@@ -18,9 +18,9 @@ namespace PeopleSharp.Server.Controllers
         [HttpGet("[action]")]
         public StatsCompany GetStatsCompany()
         {
-            StatsCompanyCalculator calc = new StatsCompanyCalculator();
+            StatsCompanyCalculator calc = new();
 
-            return calc.CalculateStatsCompany();
+            return calc.CalculateStats();
         }
     }
 }

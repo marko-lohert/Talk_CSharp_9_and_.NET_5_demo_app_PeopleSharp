@@ -8,9 +8,9 @@ namespace PeopleSharp.Server.Statistics
 {
     public class StatsCompanyCalculator : StatsEmployeesCalculator
     {
-        public StatsCompany CalculateStatsCompany()
+        public override StatsCompany CalculateStats()
         {
-            DepartmentsController departmentsController = new DepartmentsController();
+            DepartmentsController departmentsController = new();
             List<Department>? allDepartments = departmentsController.GetAllDepartments()?.ToList();
 
             int countDepartments = allDepartments?.Count ?? 0;
@@ -19,10 +19,10 @@ namespace PeopleSharp.Server.Statistics
             // Mock data
             int countManagers = 4;
 
-            StatsEmployeesCalculator statsEmployeesCalculator = new StatsEmployeesCalculator();
+            StatsEmployeesCalculator statsEmployeesCalculator = new();
             StatsEmployees statsEmployees = statsEmployeesCalculator.CalculateStats();
 
-            return new StatsCompany(countDepartments, countManagers, statsEmployees.CountEmployees, statsEmployees.AvgVacationDays, statsEmployees.DiffJobTitles);
+            return new(countDepartments, countManagers, statsEmployees.CountEmployees, statsEmployees.AvgVacationDays, statsEmployees.DiffJobTitles);
         }
     }
 }

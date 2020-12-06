@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace PeopleSharp.Shared
 {
@@ -14,18 +15,18 @@ namespace PeopleSharp.Shared
             int vacationDays = 20;
 
             int yearWithCompany = CalculateYearWithCompany(employee);
-                        
-            if (yearWithCompany > 1 && yearWithCompany <= 4)
-                vacationDays++;
-            else if (yearWithCompany > 4 && yearWithCompany <= 7)
-                vacationDays += 3;
-            else if (yearWithCompany > 7 && yearWithCompany < 10)
-                vacationDays += 4;
-            else
-                vacationDays += 7;
+
+            vacationDays += yearWithCompany switch
+            {
+                > 1 and <= 4    => 1,
+                > 4 and <= 7    => 3,
+                > 7 and <= 10   => 4,
+                > 10            => 7
+            };
 
             return vacationDays;
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             static int CalculateYearWithCompany(Employee employee)
             {
                 if (employee.DateOfEmployment < DateTime.Now)
