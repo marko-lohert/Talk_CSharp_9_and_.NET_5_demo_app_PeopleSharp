@@ -1,4 +1,5 @@
 ﻿using PeopleSharp.Server.Controllers;
+using PeopleSharp.Server.DataAccess;
 using PeopleSharp.Shared;
 using PeopleSharp.Shared.Statistics;
 using System.Collections.Generic;
@@ -15,14 +16,12 @@ namespace PeopleSharp.Server.Statistics
 
             int countDepartments = allDepartments?.Count ?? 0;
 
-            // todo Count all managers (replace mocked data).
-            // Mock data
-            int countManagers = 4;
+            DaoManager daoManager = new();
 
             StatsEmployeesCalculator statsEmployeesCalculator = new();
             StatsEmployees statsEmployees = statsEmployeesCalculator.CalculateStats();
 
-            return new(countDepartments, countManagers, statsEmployees.CountEmployees, statsEmployees.AvgVacationDays, statsEmployees.DiffJobTitles);
+            return new(countDepartments, daoManager.CountAllManagers(), statsEmployees.CountEmployees, statsEmployees.AvgVacationDays, statsEmployees.DiffJobTitles);
         }
     }
 }
