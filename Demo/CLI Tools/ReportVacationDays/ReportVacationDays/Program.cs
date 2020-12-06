@@ -3,9 +3,9 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 
 using DataTable dataTable = GetData();
-
-string reportFileName = $"C:\\HR #\\Report Vacation Days {DateTime.Now:yyyy-MM-dd HH.mm}.xlsx";
-DataTableToExcel.DataTableToExcel.ExportToExcel(reportFileName, WworkBookName: "HR #", dataTable);
+            
+string reportFileName = $"C:\\People#\\Report Vacation Days {DateTime.Now:yyyy-MM-dd HH.mm}.xlsx";
+DataTableToExcel.DataTableToExcel.ExportToExcel(reportFileName, WworkBookName: "People#", dataTable);
 
 DataTable GetData()
 {
