@@ -10,18 +10,25 @@ namespace PeopleSharp.Server.DataAccess
         {
             DataTable dtAllDepartments = GetAllDepartmentsFromDB();
 
-            List<Department> listAllDepartments = new();
-
-            foreach (DataRow row in dtAllDepartments.Rows)
+            if (dtAllDepartments != null)
             {
-                var (departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment) = Parse(row);
+                List<Department> listAllDepartments = new();
 
-                Department department = new Department(departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment);
+                foreach (DataRow row in dtAllDepartments.Rows)
+                {
+                    var (departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment) = Parse(row);
 
-                listAllDepartments.Add(department);
+                    Department department = new Department(departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment);
+
+                    listAllDepartments.Add(department);
+                }
+
+                return listAllDepartments;
             }
-
-            return listAllDepartments;
+            else
+            {
+                return new List<Department>();
+            }
         }
 
         private Manager ParseManager(DataRow row)
@@ -109,7 +116,7 @@ namespace PeopleSharp.Server.DataAccess
             DataTable dtMockData = new DataTable();
             for (int i = 0; i < 3; i++)
                 dtMockData.Rows.Add(dtMockData.NewRow());
-            
+
             return dtMockData;
         }
     }
