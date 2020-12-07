@@ -10,24 +10,31 @@ namespace PeopleSharp.Server.DataAccess
         {
             DataTable dtAllDepartments = GetAllDepartmentsFromDB();
 
-            List<Department> listAllDepartments = new List<Department>();
-
-            foreach (DataRow row in dtAllDepartments.Rows)
+            if (dtAllDepartments != null)
             {
-                var (departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment) = Parse(row);
+                List<Department> listAllDepartments = new List<Department>();
 
-                Department department = new Department
+                foreach (DataRow row in dtAllDepartments.Rows)
                 {
-                    DepartmentName = departmentName,
-                    HeadOfDepartment = headOfDepartment,
-                    Subdepartments = subdepartments,
-                    EmployeesDirectlyInDepartment = employeesDirectlyInDepartment
-                };
+                    var (departmentName, subdepartments, employeesDirectlyInDepartment, headOfDepartment) = Parse(row);
 
-                listAllDepartments.Add(department);
+                    Department department = new Department
+                    {
+                        DepartmentName = departmentName,
+                        HeadOfDepartment = headOfDepartment,
+                        Subdepartments = subdepartments,
+                        EmployeesDirectlyInDepartment = employeesDirectlyInDepartment
+                    };
+
+                    listAllDepartments.Add(department);
+                }
+
+                return listAllDepartments;
             }
-
-            return listAllDepartments;
+            else
+            {
+                return new List<Department>();
+            }
         }
 
         private Manager ParseManager(DataRow row)
@@ -115,7 +122,7 @@ namespace PeopleSharp.Server.DataAccess
             DataTable dtMockData = new DataTable();
             for (int i = 0; i < 3; i++)
                 dtMockData.Rows.Add(dtMockData.NewRow());
-            
+
             return dtMockData;
         }
     }
