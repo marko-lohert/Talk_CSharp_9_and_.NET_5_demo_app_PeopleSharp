@@ -61,7 +61,7 @@ namespace ReportVacationDays.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=.\SQLEXPRESS;Initial Catalog=HRSharp;Integrated Security=SSPI;.
+        ///   Looks up a localized string similar to Data Source=.\SQLEXPRESS;Initial Catalog=PeopleSharp;Integrated Security=SSPI;.
         /// </summary>
         internal static string ConnectionString {
             get {
