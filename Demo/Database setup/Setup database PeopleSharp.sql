@@ -1,14 +1,14 @@
---------------------------------
--- Setup Database HRSharp     --
---                            --
--- Run on (tested on):        --
--- Microsoft SQL Server 2019  --
---------------------------------
+------------------------------------
+-- Setup Database PeopleSharp     --
+--                                --
+-- Run on (tested on):            --
+-- Microsoft SQL Server 2019      --
+------------------------------------
 
-CREATE DATABASE HRSharp;
+CREATE DATABASE PeopleSharp;
 GO
 
-USE HRSharp;
+USE PeopleSharp;
 GO
 
 CREATE TABLE Employee
