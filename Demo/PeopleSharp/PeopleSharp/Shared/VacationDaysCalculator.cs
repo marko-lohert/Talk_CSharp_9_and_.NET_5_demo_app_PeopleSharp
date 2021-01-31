@@ -14,9 +14,9 @@ namespace PeopleSharp.Shared
         {
             int vacationDays = 20;
 
-            int yearWithCompany = CalculateYearWithCompany(employee);
+            int yearsWithCompany = CalculateYearsWithCompany(employee);
 
-            vacationDays += yearWithCompany switch
+            vacationDays += yearsWithCompany switch
             {
                 > 1 and <= 4    => 1,
                 > 4 and <= 7    => 3,
@@ -27,7 +27,7 @@ namespace PeopleSharp.Shared
             return vacationDays;
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            static int CalculateYearWithCompany(Employee employee)
+            static int CalculateYearsWithCompany(Employee employee)
             {
                 if (employee.DateOfEmployment < DateTime.Now)
                     return (int)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
