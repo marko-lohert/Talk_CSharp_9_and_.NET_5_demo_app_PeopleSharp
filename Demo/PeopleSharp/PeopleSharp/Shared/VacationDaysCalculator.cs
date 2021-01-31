@@ -13,20 +13,20 @@ namespace PeopleSharp.Shared
         {
             int vacationDays = 20;
 
-            int yearWithCompany = CalculateYearWithCompany(employee);
+            int yearsWithCompany = CalculateYearsWithCompany(employee);
                         
-            if (yearWithCompany > 1 && yearWithCompany <= 4)
+            if (yearsWithCompany > 1 && yearsWithCompany <= 4)
                 vacationDays++;
-            else if (yearWithCompany > 4 && yearWithCompany <= 7)
+            else if (yearsWithCompany > 4 && yearsWithCompany <= 7)
                 vacationDays += 3;
-            else if (yearWithCompany > 7 && yearWithCompany < 10)
+            else if (yearsWithCompany > 7 && yearsWithCompany < 10)
                 vacationDays += 4;
             else
                 vacationDays += 7;
 
             return vacationDays;
 
-            static int CalculateYearWithCompany(Employee employee)
+            static int CalculateYearsWithCompany(Employee employee)
             {
                 if (employee.DateOfEmployment < DateTime.Now)
                     return (int)(DateTime.Now - employee.DateOfEmployment).TotalDays / 365;
